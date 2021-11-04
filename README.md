@@ -204,3 +204,19 @@ int main()
 	else
 		printf("YOU ARE FOOL");
 }
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+int main()
+{
+	char ch;
+	scanf("%c", &ch);
+	while (ch != EOF)
+	{
+		if (ch < '0' || ch>'9')
+			continue;
+		putchar(ch);
+		break;
+	}
+	return 0;
+}
