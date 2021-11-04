@@ -161,3 +161,25 @@ int main()
 	return 0;
 
 }
+
+
+#include<stdio.h>
+int main()
+{
+	int i;
+	float score[10];
+	float max, min;
+	for (i = 0; i<=9; i++)
+	{
+		scanf_s("%f", &score[i]);
+		if (i == 0)
+			max = min = score[i];
+		else if (score[i] > max)
+			max = score[i];
+		else if (score[i] < min)
+			min = score[i];
+	}
+	printf("MAX=%6.2f,MIN=%6.2f\n", max, min);
+	return 0;
+}
+
