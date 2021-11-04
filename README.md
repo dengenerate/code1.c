@@ -183,3 +183,24 @@ int main()
 	return 0;
 }
 
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+int main()
+{
+	int retain = 0;
+	int ch = 0;
+	char password[20] = {0};
+	printf("PIN:>");
+	scanf("%s", password);//缓冲区还有一个'/n'
+	while ((ch=getchar()) != '\n')
+	{
+		;
+	}
+	printf("PLEASE CONFIRM:(Y/N):>");
+	retain = getchar();
+	if (retain == 'Y')
+		printf("CONFIRM SUCCESSFULLLY");
+	else
+		printf("YOU ARE FOOL");
+}
