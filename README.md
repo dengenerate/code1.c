@@ -249,3 +249,161 @@ printf("%s\n", str);
 return 0;
 }
 
+
+
+
+#include <stdio.h>
+int main()
+{
+int a[9];
+int i, j, sum = 0;
+printf("输入一个3x3矩阵元素:\n");
+for (i = 0; i < 3; i++)
+{
+for (j = 0; j < 3; j++) 
+{
+scanf("%d", &a[i*3+j]);
+if (i == j)// 主对角线位置
+sum += a[i*3+j];
+}
+}
+printf("sum=%d\n\n", sum);
+return 0;
+}
+
+
+#include <stdio.h>
+int main() 
+{
+int a[10] = { 15,27,31,40,53,66,72,83,96 };
+int b, i, j;
+printf("原数组元素:");
+for (i = 0; i < 9; i++)
+printf("%d ", a[i]);
+printf("\n输入补插入数:");
+scanf("%d", &b);
+for (i = 0; i < 9; i++)
+{
+if (b < a[i])//确定插入位置i
+{
+//把所有后面的数字后移一位
+for (j = 9; j >i; j--)
+a[j] = a[j-1];
+break;
+}
+}
+a[i] = b;
+printf("新元素顺序: ");
+for (i = 0; i < 10; i++)
+printf("%d ", a[i]);
+printf("\n");
+return 0;
+}
+
+#include<stdio.h>
+void main()
+{
+int a[10],i,m,t;//m最小元素的位置
+for(i=0;i<10;i++)
+scanf("%d",&a[i]);
+for(i=1,m=0;i<10;i++)
+{
+if(a[m]>a[i])
+m=i;
+}
+if(m!=0)
+{
+t=a[0];
+a[0]=a[m];
+a[m]=t;
+}
+for(i=0;i<10;i++)
+printf("%d ",a[i]);
+printf("\n");
+}
+
+
+#include<stdio.h>
+void main()
+{
+int a[10],i,m,t;//m最小元素的位置
+for(i=0;i<10;i++)
+scanf("%d",&a[i]);
+for(i=1,m=0;i<10;i++)
+{
+if(a[m]>a[i])
+m=i;
+}
+if(m!=0)
+{
+t=a[0];
+a[0]=a[m];
+a[m]=t;
+}
+for(i=0;i<10;i++)
+printf("%d ",a[i]);
+printf("\n");
+}
+
+#include <stdio.h>
+void main()
+{
+char str1[80],str2[80];
+int i=0;
+gets(str1);
+do
+{
+str2[i]=str1[i];
+if(str1[i]=='\0')
+break;
+i++;
+}while(1);
+printf("\nstr1 is %s\n",str1);
+printf("str2 is %s\n",str2);
+}
+
+
+#include <stdio.h>
+void main()
+{
+double ds[5]={0},sum=0;
+int i=0;
+for(i=0;i<5;i++)
+{
+scanf("%lf",&ds[i]);
+sum+=ds[i];
+}
+printf("\naverage is %.1f\n",sum/5);
+for(i=0;i<5;i++)
+printf("%.1f\t",ds[i]);
+printf("\n\n");
+}
+
+
+#include <stdio.h>
+int main() 
+{
+int a[5] = { 8,6,5,4,1 };
+int i,ex;
+printf("原数组元素:");
+for (i = 0; i < 5; i++)
+printf("%d ", a[i]);
+//交换
+for (i = 0; i < 5 / 2; i++) 
+{
+//交换a[i]和a[5-i-1]的值
+ex=a[i];
+a[i]=a[5-i-1];
+a[5-i-1]=ex;
+}
+printf("\n交换后:");
+for (i = 0; i < 5; i++) 
+printf("%d ", a[i]);
+printf("\n");
+return 0;
+}
+
+
+
+
+
