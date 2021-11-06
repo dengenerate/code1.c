@@ -220,3 +220,32 @@ int main()
 	}
 	return 0;
 }
+
+
+
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+char has_this[26]={0};//26个字大写字母
+char ch,str[80]={0};
+int i=0;
+while ((ch = getchar()) != '\n')//从键盘上读取一个字符，如果为回车结束
+{
+if (ch >= 'A' && ch <= 'Z') 
+{
+if(has_this[ch-'A']==0)
+{
+has_this[ch - 'A'] = 1;//ch-'A'获得元素位置
+str[i++]=ch;
+}
+}
+}
+if(i>0)
+{
+str[i]='\0';
+printf("%s\n", str);
+}
+return 0;
+}
+
