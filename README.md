@@ -406,4 +406,443 @@ return 0;
 
 
 
+#include <stdio.h>
+#define S ' '
+int main()
+{
+int n,i,j;
+//printf("Enter n:");
+scanf(/*BLANK*/"%d",&n/*BLANK*/);//没有判断n的合法性
+for(i=1;i<=n;i++)//打印前n行
+{
+for(j=1;j<=10;j++)//打印每行前面的空格
+/*BLANK*/putchar(S) /*BLANK*/;
+for(j=1;j<=2*(n-i);j++)//打印每行独有的空格
+/*BLANK*/putchar(S) /*BLANK*/;
+for(j=1;j<=2*i-1;j++)//打印每行独有的*
+/*BLANK*/putchar('*') /*BLANK*/;
+printf("\n");
+}
+for(i=1;i<=n-1;i++)//打印后n-1行
+{
+for(j=1;j<=10;j++)//打印每行前面的空格
+putchar(S);
+for(j=1;j<=2*(n-i)-1;j++)//打印每行独有的*
+putchar('*');
+printf("\n");
+}
+return 0;
+}
+
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+int x,flag=1;
+//printf("请输入一个5位整数:");
+scanf("%d",&x);
+if(fabs(x)>99999||fabs(x)<10000)
+printf("不是5位整数\n");
+if(x<0)//判断负数
+{
+flag=-1;
+x*=-1;//变为正数
+}
+if(flag<0)
+printf("-");
+do
+{
+printf("%d",x%10);
+/*BLANK*/x/=10;/*BLANK*/
+}while(x>0);
+putchar('\n');
+return 0;
+}
+
+#include <stdio.h>
+int main()
+{
+int i,a,b,c;
+for(i=100;i<=999;i++)
+{
+a=i/100;//百位数字
+b=(i-a*100)/10;//十位数字
+c=i-a*100-b*10;//个位数字
+if(/*BLANK*/i==a*a*a+b*b*b+c*c*c/*BLANK*/)
+printf("%d\n",i);
+}
+return 0;
+}
+
+#include <stdio.h>
+int main()
+{
+const int n = 1000;
+int i, j, sum;
+for (i = 2; i <= n; i++) 
+{
+sum = 0;
+for (j = 1; j < i; j++) 
+{
+if (i % j == 0) 
+sum += j;
+}
+if (/*BLANK*/sum == i/*BLANK*/)//i是完数
+{
+printf("%d = ", i);
+for (j = 1; j < i; j++) 
+{
+if (i % j == 0) 
+{
+if(j==1)
+printf("%d",j);
+else
+printf(" + %d", j);
+}
+}
+printf("\n");
+}
+}
+return 0;
+}
+
+#include <stdio.h>
+int main()
+{
+int i,flag=1,c=0;//i循环变量,flag符号标识,c循环计数器
+double sum=0,m,z,x;//sum累加值,m分母,z分子,x输入角度
+printf("输入角度:");
+scanf("%lf",&x); 
+x=/*BLANK*/3.1415926*x/180.0/*BLANK*/; //角度转换为弧度
+z=x;
+m=1.0;
+for(i=1 ; ; i+=2)
+{
+c++;
+sum=/*BLANK*/sum+flag*z/m/*BLANK*/;//计算项的累计和
+if(z/m < 1.0e-6)//判断精度
+break;
+z=/*BLANK*/z*x*x/*BLANK*/;//下项的分子
+m=m*(i+1)*(i+2);//下项的阶乘值
+flag*=-1;//下项的符号
+}
+printf("count=%d\nsin(%f)=%f\n",c,x,sum);
+return 0;
+}
+#include <stdio.h>
+int main()
+{
+int m,n,i,gys=0;
+//printf("输入两个正整数:");
+scanf("%d%d",&m,&n);
+for(i=1;i<=m&& i<=n;i++)
+{
+if(/*BLANK*/m%i==0 && n%i==0/*BLANK*/)
+gys=i;
+}
+printf("%d,%d的最大公约数为%d,最小公倍数为%d\n",m,n,gys,m*n/gys);
+return 0;
+}
+
+#include <stdio.h>
+int main()
+{
+/*BLANK*/double sum = 0/*BLANK*/;
+int k;
+for (k = 1; k <= 100; k++)
+{
+/*BLANK*/sum += k/*BLANK*/;
+}
+for (k = 1; k <= 50; k++) 
+{
+/*BLANK*/sum += (k * k)/*BLANK*/;
+}
+for (k = 1; k <= 10; k++)
+{
+/*BLANK*/sum += (1.0 / k)/*BLANK*/;
+}
+printf("%lf\n", sum);
+return 0;
+}
+#include <stdio.h>
+int main()
+{
+long int x,i,j;
+//printf("pls input x:");
+scanf("%d",&x);//没有判断x的合法性
+for(i=1;i<=x/2;i++)
+{
+for(j=i+1;j<=x/2+1;j++)
+{
+if(/*BLANK*/(i+j)*(j-i+1)/2/*BLANK*/==x)//由等差数列和公式得到此判断条件
+{
+printf("%d+...+%d=%d\n",i,j,x);
+break;
+}
+}
+}
+return 0;
+}
+#include <stdio.h>
+int main()
+{
+int x,sum=0,c=0;
+printf("请输入一个整数:");
+scanf("%d",&x);
+if(x<0)
+x*=-1;
+while(x!=0)
+{
+sum+=/*BLANK*/x%10/*BLANK*/;
+if(c==0)
+printf("%d",x%10);
+else
+printf(" + %d",x%10);
+c++;
+x/=/*BLANK*/10/*BLANK*/;
+}
+printf(" = %d\n",sum);
+return 0;
+}
+
+
+#include <stdio.h>
+int main()
+{
+int i;
+i=0;
+do
+{
+if(/*BLANK*/i%2==1 && i%3==2 && i%5==4 && i%6==5 && i%7==0/*BLANK*/)
+break;
+i++;
+}while(1);
+printf("最少梯数为:%d\n",i);
+return 0;
+}
+
+
+#include <stdio.h>
+#define RS 3
+#define WS 3
+#define BS 6
+#define EQU 8
+int main()
+{
+int r,w,b,count=0;
+for(b=0;b<=BS;b++)//黑球取数范围
+{
+for(r=0;r<=RS;r++)//红球取数范围
+{
+for(w=0;w<=WS;w++)//白球取数范围
+if(/*BLANK*/w+r+b/*BLANK*/==EQU)
+count++;
+}
+}
+printf("合符要求的搭配数%d\n",count);
+return 0;
+}
+
+#include <stdio.h>
+int main()
+{
+int i;
+double z=2.0,m=1.0,sum=0.0,tmp;
+for(i=0;i<20;i++)
+{
+sum+=z/m;//当前项值累加
+tmp=z;//把分子暂存
+z=/*BLANK*/z+m/*BLANK*/;//下一项分子
+m=tmp;//下一项的分母(原分子变分母)
+}
+printf("前20项和%f\n",sum);
+return 0;
+}
+
+
+#include <stdio.h>
+int main()
+{
+int s,count=0,Items;//项值、输出项数计数、给定项数
+int i, j;//循环变量
+scanf("%d",&Items);//输入项数
+for (i = 1,s=1; count<Items; s = 1, i++)//行数i从1开始
+{
+printf("%d ",s);//每行的第一项1
+count++;
+for (j = 1; j < i && count<Items ; j++)//列位置j绕过第一个直接开始循环
+{
+s = /*BLANK*/(i - j) * s/j/*BLANK*/;//通项公式,s-前项值
+printf("%d ", s);
+count++;//输出项计数
+}
+printf("\n");
+if(count>=Items)
+break;
+}
+return 0;
+}
+
+#include <stdio.h>
+int main()
+{
+int i,j,k,count=0;
+for(i=1;i<=100/3;i++)//大马
+{
+for(j=1;j<=100/2;j++)//中马
+{
+k=100-i-j;//小马数
+if(i*3+j*2+k/2==100 && k%2==0)//货物总数，两匹小马驮一担
+{
+count++;
+//printf("大马 %d, 中马 %d, 小马 %d\n",i,j,k);
+}
+}
+}
+printf("共有组合模式: %d\n",count);
+return 0;
+}
+
+#include <stdio.h>
+int main()
+{
+int x,y,min=133,finalx,finaly,t;
+for(x=1;x<=133/19+1;x++)//19米的
+{
+for(y=1;y<=133/23+1;y++)//23米的
+{
+t=133-x*19-y*23;//剩余长度
+if(t<min && t>=0)
+{
+min=t;
+finalx=x;
+finaly=y;
+}
+}
+}
+printf("19米段数:%d\n23米段数:%d\n余段长度:%d\n",finalx,finaly,min);
+return 0;
+}
+#include <stdio.h>
+void main()
+{
+double score=0,sum=0,min,max;
+int count=0;
+do
+{
+scanf("%lf",&score);
+if(score>=0.0)
+{
+sum+=score;
+if(count==0)
+min=max=score;
+else
+{
+if(score<min)
+min=score;
+if(score>max)
+max=score;
+}
+count++;
+}
+}while(count<7);//负数作为输入结束
+if(count>2)
+printf("评分个数%d,平均分%f\n",count,(sum-max-min)/(count-2));
+else
+printf("评分个数小于3!不符合评分条件!\n");
+}
+
+
+#include <stdio.h>
+int main()
+{
+int i,a,n,t,sum=0;
+printf("input a and n:");
+scanf("%d%d",&a,&n);//
+for(t=0,i=1;i<=n;i++)//i项序号
+{
+t=t*10+a;//t为零时变量，来存储a0,a00,a00...
+if(i==1)
+printf("Sn=%d ",t);
+else
+printf("+ %d",t);
+sum+=t;
+}
+printf(" = %d\n",sum);
+return 0;
+}
+
+#include <stdio.h>
+int main()
+{
+int n = 10;
+double sum = 0, length = 100;
+int i;
+for (i = 0; i < n; i++)
+{
+sum += length;//落地过程行程和
+length /= 2.0;//弹起过程
+if (i != n - 1)//最后一次反弹不算入总行程
+sum += length;
+}
+printf("sum=%lf, length=%lf\n", sum, length);
+return 0;
+}
+
+#include <stdio.h>
+int main()
+{
+int i,A,B,C,D;
+for(i=1000;i<=9999;i++)
+{
+A=i/1000;//千位数字
+B=(i-A*1000)/100;//百位数字
+C=(i-A*1000-B*100)/10;//十位数字
+D=i-A*1000-B*100-C*10;//个位数字
+if(i-(C*100+D*10+C)==A*100+B*10+C)
+printf("%6d\n-%5d\n------\n%6d\n",i,(C*100+D*10+C),A*100+B*10+C);
+}
+return 0;
+}
+
+
+
+
+#include <stdio.h>
+int main()
+{
+int day;
+double earn=0;
+double pay=0,total=0;//记富翁付出的钱
+for(day=0,pay=0.01,earn=0;day<30;day++)
+{
+total+=pay;//富翁总付出
+earn=earn+100000;//穷人付出
+pay=pay*2;//富翁后一天应付出
+}
+printf("%d天后富翁:\n得到:%11.2f\n付出:%11.2f\n损失:%11.2f\n", day,earn,total,total-earn);
+return 0;
+}
+
+#include <stdio.h>
+int main()
+{
+int i,n;
+printf("pls input n: ");
+scanf("%ld",&n);
+while(n>1)
+{
+for(i=2; ;i++)//无循环条件即为真
+{
+if(n%i==0)//i是n的因子
+{
+printf("%d ",i);
+n=n/i;
+break;
+}
+}
+}
+printf("\n");
+return 0;
+}
 
