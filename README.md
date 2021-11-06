@@ -846,3 +846,109 @@ printf("\n");
 return 0;
 }
 
+
+
+#include <stdio.h>
+void main()
+{
+	double loan,rate,payment,tmp;
+	printf("Enter amount of loan: ");
+	scanf("%lf",&loan);
+	printf("Enter interest rate: ");
+	scanf("%lf",&rate);
+	printf("Enter monthly payment: ");
+	scanf("%lf",&payment);
+	loan=loan+loan*rate/100.0/12-payment;
+	printf("\nBalance remaining after first payment: $%.2f\n",loan);
+	loan=loan+loan*rate/100.0/12-payment;
+	printf("Balance remaining after second payment: $%.2f\n",loan);
+	loan=loan+loan*rate/100.0/12-payment;
+	printf("Balance remaining after third payment: $%.2f\n",loan);
+}
+
+#include <stdio.h>
+void main()
+{
+	int y,m,d;
+	printf("Enter a date (mm/ad/yyyy):");
+	scanf("%d/%d/%d",&m,&d,&y);
+	printf("You entered the date %4d%02d%02d\n",y,m,d);
+}
+
+#include <stdio.h>
+void main()
+{
+	int ItemNo,year,month,day;
+	double price;
+	printf("Enter item nummber:");
+	scanf("%d",&ItemNo);
+	printf("Enter unit price: ");
+	scanf("%lf",&price);
+	printf("Enter purchase date (mm/ dd/yyyy): ");
+	scanf("%d/%d/%d",&month,&day,&year);
+	printf("Item\tUnit\tPurchase\n");
+	printf("\tPrice\tDate\n");
+	//一个制表宽度是8个字符
+	printf("%d\t%7.2f\t%d/%d/%d\n",ItemNo,price,month,day,year);
+}
+
+
+#include <stdio.h>
+void main()
+{
+	int part1,part2,part3,part4,part5;
+	printf("Enter ISBN: ");
+	scanf("%d-%d-%d-%d-%d",&part1,&part2,&part3,&part4,&part5);
+	printf("GS1 prefix:%d\n",part1);
+	printf("Group identifier:%d\n",part2);
+	printf("Publisher code: %d\n",part3);
+	printf("Item number: %d\n",part4);
+	printf("Check digit: %d\n",part5);
+}
+
+
+#include <stdio.h>
+void main()
+{
+	int part1,part2,part3;
+	printf("Enter phone number [(xxx)xxx-xxxx]: ");
+	scanf("(%3d)%3d-%4d",&part1,&part2,&part3);
+	printf("\nYou entered %03d.%03d.%04d\n",part1,part2,part3);
+}
+
+#include <stdio.h>
+void main()
+{
+	int in1,in2,in3,in4,in5,in6,in7,in8,in9,in10,in11,in12,in13,in14,in15,in16;
+	int Row1,Row2,Row3,Row4;
+	int Col1,Col2,Col3,Col4;
+	int Dia1,Dia2;
+	printf("Enter the numbers from 1 to 16 in any order :\n");
+	scanf("%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d%d",&in1,&in2,&in3,&in4,&in5,&in6,&in7,&in8,	&in9,&in10,&in11,&in12,&in13,&in14,&in15,&in16);
+	Row1=in1+in2+in3+in4;
+	Row2=in5+in6+in7+in8;
+	Row3=in9+in10+in11+in12;
+	Row4=in13+in14+in15+in16;
+	Col1=in1+in5+in9+in13;
+	Col2=in2+in6+in10+in14;
+	Col3=in3+in7+in11+in15;
+	Col4=in4+in8+in12+in16;
+	Dia1=in1+in6+in11+in16;
+	Dia2=in4+in7+in10+in13;
+	printf("Row sums:%6d%6d%6d%6d\n",Row1,Row2,Row3,Row4);
+	printf("Column sums:%6d%6d%6d%6d\n",Col1,Col2,Col3,Col4);
+	printf("Diagonal sums:%6d%6d\n", Dia1,Dia2);
+}
+
+#include <stdio.h>
+int main()
+{
+	int a,b,c,d;
+	printf("Enter two fractions separated by a plus sign:");
+	scanf("%d/%d+%d/%d",&a,&b,&c,&d);
+	printf("The sum is %d/%d\n",(a*d+c*b),(b*d));
+}
+
+
+
+
